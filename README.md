@@ -1,50 +1,166 @@
-# React + TypeScript + Vite
+# 📘 Currency Converter — React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un convertisseur de devises moderne développé avec **React**, **TypeScript**, **TailwindCSS**, et une API gratuite pour obtenir les taux de change en temps réel.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Fonctionnalités
 
-## Expanding the ESLint configuration
+* 🔄 Conversion en temps réel entre plus de 30 devises
+* 🌍 Taux obtenus à partir d'une **API gratuite**
+* 🎨 Interface moderne grâce à **TailwindCSS**
+* ⚡ Rapidité et performance avec **Vite + React + TS**
+* 📱 Design responsive (mobile / desktop)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## 🛠️ Technologies utilisées
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+* **React 18**
+* **TypeScript**
+* **Vite**
+* **TailwindCSS**
+* **API Exchangerate.host** (gratuite & sans clé)
+
+---
+
+## 📦 Installation
+
+Clone le projet :
+
+```bash
+git clone https://github.com/your-username/currency-converter.git
+cd currency-converter
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Installe les dépendances :
+
+```bash
+npm install
+```
+
+---
+
+## 🎨 Configuration de TailwindCSS
+
+Si tu veux vérifier que Tailwind fonctionne, les fichiers nécessaires sont :
+
+### `tailwind.config.js`
 
 ```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
   },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+  plugins: [],
+};
 ```
+
+### `src/index.css`
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+---
+
+## 🌐 API utilisée
+
+Ce projet utilise :
+
+```
+https://api.exchangerate.host/latest?base=USD&symbols=EUR
+```
+
+Exemple de réponse :
+
+```json
+{
+  "success": true,
+  "base": "USD",
+  "rates": {
+    "EUR": 0.92
+  }
+}
+```
+
+➡️ Avantage : **API gratuite, fiable et sans clé API**
+
+---
+
+## ▶️ Lancer le projet
+
+```bash
+npm run dev
+```
+
+Le projet sera lancé ici :
+
+```
+http://localhost:5173
+```
+
+---
+
+## 📁 Structure du projet
+
+```
+currency-converter/
+│── public/
+│── src/
+│   ├── components/
+│   │   ├── CurrencySelector.tsx
+│   │   ├── ConverterCard.tsx
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── index.css
+│── package.json
+│── tailwind.config.js
+│── tsconfig.json
+│── README.md
+```
+
+---
+
+## 🧮 Exemple d'utilisation
+
+1. Choisir la devise source :
+   🇺🇸 USD
+
+2. Choisir la devise cible :
+   🇪🇺 EUR
+
+3. Entrer un montant :
+   `100`
+
+4. Résultat affiché automatiquement :
+   `100 USD = 92.00 EUR`
+
+---
+
+## 🎯 Objectifs pédagogiques
+
+Ce projet permet de pratiquer :
+
+* Hooks React (`useState`, `useEffect`)
+* Appels API avec `fetch`
+* Gestion de formulaires
+* Styling Tailwind
+* Architecture propre en React
+* Types TypeScript
+
+---
+
+## 📜 Licence
+
+Libre d'utilisation pour projets personnels, étudiants ou apprentissage.
+
+---
+
